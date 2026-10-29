@@ -19,6 +19,9 @@ const productRoutes = require('./src/routes/productRoute');
 app.use('/api/categorias', categoryRoutes);
 app.use('/api/productos', productRoutes);
 
+const errorHandler = require('./src/middlewares/errorMiddleware');
+app.use(errorHandler);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
